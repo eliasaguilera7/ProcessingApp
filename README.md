@@ -1,5 +1,5 @@
 # ProcessingApp
-[![Build Status](https://dev.azure.com/200395896/ApplicationProcessingApp/_apis/build/status/KirillSBarsukov.ApplicationProcessingApp?branchName=master)](https://dev.azure.com/200395896/ApplicationProcessingApp/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/200395896/ProcessingApp/_apis/build/status/ProcessingApp-dev-as%20-%20CI?branchName=master)](https://dev.azure.com/200395896/ProcessingApp/_build/latest?definitionId=6&branchName=master)
 # ApplicationProcessingApp
 
 Basically, is web app that allows tenants who wants to rent a house or apartment to send only one application and apply for multiple places. As oppose of the current system where you must send and application for each apartment which is inefficient and time consuming.

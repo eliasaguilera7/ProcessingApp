@@ -8,7 +8,7 @@ namespace ProcessingApp.Models
 {
     public class PropertyModel
     {
-        // Key
+        // Key1
         [Key]
         public virtual int PropertyId { get; set; }
         public virtual String PropertyName { get; set; }

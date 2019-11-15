@@ -11,6 +11,10 @@ namespace ProcessingApp.Models
         // Key
         [Key]
         public virtual int OwnerId { get; set; }
+
+        // Owner Name
+        [Display(Name = "Owner")]
+        [Required]
         public virtual String OwnerName { get; set; }
     }
 }

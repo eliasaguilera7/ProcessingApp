@@ -1,0 +1,36 @@
+﻿@model ProcessingApp.Models.PropertyModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PropertyModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyAdress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyAdress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PropertyId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

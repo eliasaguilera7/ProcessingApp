@@ -1,7 +1,6 @@
 # ProcessingApp
 [![Build Status](https://dev.azure.com/200395896/ProcessingApp/_apis/build/status/ProcessingApp-dev-as%20-%20CI?branchName=master)](https://dev.azure.com/200395896/ProcessingApp/_build/latest?definitionId=6&branchName=master)
 
-https://dev.azure.com/200395896/ProcessingApp/_apis/build/status/ProcessingApp-dev-as%20-%20CI?branchName=master
 Basically, is web app that allows tenants who wants to rent a house or apartment to send only one application and apply for multiple places. As oppose of the current system where you must send and application for each apartment which is inefficient and time consuming.
 
 Landlord part: We think we will not be able to accomplish also a landlord side. In that case, we will make a predefined property. However, we still do not know how it will go and how many people will work on it. In the best-case scenario, we will make a landlord part as well. 

@@ -3,45 +3,79 @@
 @{
     ViewData["Title"] = "Index";
 }
+<h2>List of Properties</h2>
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="create-new-button">
+    <a class="btn btn-primary" asp-action="Create">Add New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyAdress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyPrice)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyAdress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyPrice)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4" style="margin-top:1rem">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayNameFor(model => model.PropertyName)</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.PropertyAdress): </b>@Html.DisplayFor(modelItem => item.PropertyAdress)</li>
+
+                    <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.PropertyPrice): </b>$@Html.DisplayFor(modelItem => item.PropertyPrice)</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">Action</button>
+                            <button class="dropdown-item" type="button">Another action</button>
+                            <button class="dropdown-item" type="button">Something else here</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyAdress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyPrice)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

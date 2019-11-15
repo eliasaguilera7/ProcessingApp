@@ -23,7 +23,6 @@ namespace ProcessingApp.Models
         [Display(Name = "Address")]
         // input validation
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         [StringLength(60, MinimumLength = 10)]
         public virtual String PropertyAdress { get; set; }
 

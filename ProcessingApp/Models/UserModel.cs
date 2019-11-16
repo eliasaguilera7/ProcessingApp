@@ -9,8 +9,6 @@ namespace ProcessingApp.Models
 {
     public class UserModel:IdentityUser
     {
-        [Key]
-        public virtual int UserId { get; set; }
         public virtual String Name { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using ProcessingApp.Data;
 namespace ProcessingApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191115055114_UserIdentity")]
-    partial class UserIdentity
+    [Migration("20191116195645_firstMigration")]
+    partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

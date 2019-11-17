@@ -28,7 +28,7 @@
                     <a class="dropdown-item" asp-action="Details" asp-route-id="@Model.PropertyId">Details</a>
                 </div>
             </div>
-            <button type="button" href="#" class="btn btn-success">Apply</button>
+            <button type="button" href="#" asp-controller="MyApplication" asp-route-id="@Model.PropertyId" class="btn btn-success">Apply</button>
         </div>
     </div>
 </div>

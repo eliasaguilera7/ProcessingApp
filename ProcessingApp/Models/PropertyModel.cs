@@ -8,7 +8,7 @@ namespace ProcessingApp.Models
 {
     public class PropertyModel
     {
-        // Key1
+        // Key
         [Key]
         public virtual int PropertyId { get; set; }
 
@@ -19,6 +19,12 @@ namespace ProcessingApp.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         [StringLength(50, MinimumLength = 3)]
         public virtual String PropertyName { get; set; }
+
+        // Property Description
+        [Display(Name = "Property Description")]
+        [StringLength(50, MinimumLength = 10)]
+        [Required]
+        public virtual String PropertyDescription { get; set; }
 
         [Display(Name = "Address")]
         // input validation
@@ -39,6 +45,7 @@ namespace ProcessingApp.Models
 
         [Display(Name = "Image")]
         public virtual String ImageUrl { get; set; }
+        
         // Owner
         public virtual OwnerModel Owner { get; set; }
     }

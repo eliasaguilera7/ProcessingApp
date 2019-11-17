@@ -6,12 +6,11 @@
     <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">@Html.DisplayNameFor(model => model.PropertyName)</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem.PropertyName)</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => modelItem.PropertyDescription)</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.PropertyAdress): </b>@Html.DisplayFor(modelItem => modelItem.PropertyAdress)</li>
-
             <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.PropertyPrice): </b>@Html.DisplayFor(modelItem => modelItem.PropertyPrice)</li>
             <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.City): </b>@Html.DisplayFor(modelItem => modelItem.City)</li>
         </ul>
@@ -27,10 +26,9 @@
                         <a class="dropdown-item" asp-action="Delete" asp-route-id="@Model.PropertyId">Delete</a>
                     }
                     <a class="dropdown-item" asp-action="Details" asp-route-id="@Model.PropertyId">Details</a>
-
                 </div>
             </div>
-            <button type="button" href="#" class="btn btn-success">Card link</button>
+            <button type="button" href="#" class="btn btn-success">Apply</button>
         </div>
     </div>
 </div>

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "AjaxIndex";
+}
+
+<center>
+
+
+    <input type="text" id="txtsearch" placeholder="Enter here" />
+
+    <table border="1">
+        <tr>
+            <th>PropertyId</th>
+            <th>
+                PropertyName
+            </th>
+            <th>
+                PropertyAdress
+            </th>
+            <th>
+                PropertyPrice
+            </th>
+            <th>City</th>
+            <th>ImageUrl</th>
+            <th>Owner</th>
+        </tr>
+    </table>
+
+    @foreach (var item in ViewBag.result)
+    {
+        <tr>
+            <td>
+                @item.PropertyId
+            </td>
+            <td>
+                @item.PropertyName
+            </td>
+            <td>
+                @item.PropertyAdress
+            </td>
+            <td>
+                @item.PropertyPrice
+            </td>
+            <td>@item.City</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Owner</td>
+
+        </tr>
+    }
+
+</center>

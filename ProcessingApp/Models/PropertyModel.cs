@@ -28,6 +28,7 @@ namespace ProcessingApp.Models
 
         // Price
         [DataType(DataType.Currency)]
+        [Display(Name = "Price")]
         [Required]
         public virtual double PropertyPrice { get; set; }
 
@@ -36,6 +37,8 @@ namespace ProcessingApp.Models
         [Required]
         public virtual String City { get; set; }
 
+        [Display(Name = "Image")]
+        public virtual String ImageUrl { get; set; }
         // Owner
         public virtual OwnerModel Owner { get; set; }
     }

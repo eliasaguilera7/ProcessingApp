@@ -64,7 +64,8 @@
             <p>&copy; 2019 - Processing Application</p>
         </footer>
     </div>
-
+    <!-- Popper.js does not work with vendor.min,js -->
+    <!-- <script src="~/js/vendor.min.js"></script> -->
     <environment include="Development">
         <script src="https://code.jquery.com/jquery-3.4.1.js"
                 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -86,11 +87,8 @@
                 crossorigin="anonymous"
                 integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
         </script>
-
-
     </environment>
-    <script src="~/js/vendor.min.js"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

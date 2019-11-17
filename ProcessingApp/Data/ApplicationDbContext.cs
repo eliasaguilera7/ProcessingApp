@@ -12,8 +12,10 @@ namespace ProcessingApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
         }
         public DbSet<ProcessingApp.Models.OwnerModel> OwnerModel { get; set; }
         public DbSet<ProcessingApp.Models.PropertyModel> PropertyModel { get; set; }
+
     }
 }

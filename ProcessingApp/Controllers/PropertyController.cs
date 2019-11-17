@@ -11,7 +11,6 @@ using ProcessingApp.Models;
 
 namespace ProcessingApp.Controllers
 {
-    
     public class PropertyController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -57,7 +56,7 @@ namespace ProcessingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice")] PropertyModel propertyModel)
+        public async Task<IActionResult> Create([Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice,City")] PropertyModel propertyModel)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +89,7 @@ namespace ProcessingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice")] PropertyModel propertyModel)
+        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice,City")] PropertyModel propertyModel)
         {
             if (id != propertyModel.PropertyId)
             {

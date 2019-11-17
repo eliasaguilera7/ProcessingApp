@@ -10,7 +10,7 @@ using ProcessingApp.Data;
 namespace ProcessingApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191116195645_firstMigration")]
+    [Migration("20191116230827_firstMigration")]
     partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -27,11 +27,16 @@ namespace ProcessingApp.Models
         public virtual String PropertyAdress { get; set; }
 
         // Price
+        [DataType(DataType.Currency)]
         [Required]
         public virtual double PropertyPrice { get; set; }
 
+        // City
+        [Display(Name = "City")]
+        [Required]
+        public virtual String City { get; set; }
+
         // Owner
         public virtual OwnerModel Owner { get; set; }
-
     }
 }

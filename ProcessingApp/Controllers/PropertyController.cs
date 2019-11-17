@@ -11,7 +11,7 @@ using ProcessingApp.Models;
 
 namespace ProcessingApp.Controllers
 {
-    [Authorize]
+    
     public class PropertyController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -45,6 +45,7 @@ namespace ProcessingApp.Controllers
             return View(propertyModel);
         }
 
+        [Authorize]
         // GET: Property/Create
         public IActionResult Create()
         {
@@ -67,6 +68,7 @@ namespace ProcessingApp.Controllers
             return View(propertyModel);
         }
 
+        [Authorize]
         // GET: Property/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -118,6 +120,7 @@ namespace ProcessingApp.Controllers
             return View(propertyModel);
         }
 
+        [Authorize]
         // GET: Property/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

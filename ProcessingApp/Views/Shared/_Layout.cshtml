@@ -37,14 +37,11 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="SearchAjax"asp-action="Index">Ajax</a>
-                </li>
 
             </ul>
 
             <form class="form-inline my-2 my-lg-0" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#body" asp-controller="searchajax" asp-action="Index">
-                <input name="query" class="form-control mr-sm-2" id="query" type="search" placeholder="Search by City" aria-label="Search">
+                <input name="query" class="form-control mr-sm-2" id="query" type="search" placeholder="Search by City" aria-label="Search" required>
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="dropdown" style="margin-left:2rem">

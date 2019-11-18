@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ProcessingApp.Models
 {
@@ -37,8 +39,14 @@ namespace ProcessingApp.Models
         [Required]
         public virtual String City { get; set; }
 
-        [Display(Name = "Image")]
+
+
+        [Display(Name = "Upload File")]
         public virtual String ImageUrl { get; set; }
+
+       // public IFormFile imageFile { get; set; }
+
+
         // Owner
         public virtual OwnerModel Owner { get; set; }
     }

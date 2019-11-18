@@ -12,6 +12,8 @@
     <Compile Remove="Data\Migrations\20191115055114_UserIdentity.Designer.cs" />
     <Compile Remove="Data\Migrations\20191116195645_firstMigration.cs" />
     <Compile Remove="Data\Migrations\20191116195645_firstMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20191117195421_PersonalAccount.cs" />
+    <Compile Remove="Data\Migrations\20191117195421_PersonalAccount.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

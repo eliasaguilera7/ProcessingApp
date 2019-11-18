@@ -32,3 +32,4 @@ body {padding-bottom: 20px;}
     }
 }
 .create-new-button{text-align:right}
+#ui-id-1 {z-index: 9999}

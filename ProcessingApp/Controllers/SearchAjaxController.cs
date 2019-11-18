@@ -18,7 +18,10 @@ namespace ProcessingApp.Controllers
         [HttpPost]
         public IActionResult Index(string query)
         {
+            ApplicationDbContext db = new ApplicationDbContext();
+          
             var property = GetProperties(query);
+            ViewBag.result = property;
             return PartialView(property);
         }
         public JsonResult autocomplete(string query)

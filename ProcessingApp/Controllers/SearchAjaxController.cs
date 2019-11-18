@@ -24,12 +24,11 @@ namespace ProcessingApp.Controllers
             ViewBag.result = property;
             return PartialView(property);
         }
-
-        public JsonResult autocomplete(string term)
+        public JsonResult autocomplete(string query)
         {
-            var properties = GetProperties(term);
-            String[] Results = properties.Select(property => property.PropertyName).ToArray();
-            return new JsonResult(Results);
+            var properties = GetProperties(query);
+            String[] Results = properties.Select(prop => prop.City).ToArray();
+            return new JsonResult(Results); 
         }
 
         private List<PropertyModel> GetProperties(string query)

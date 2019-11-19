@@ -6,24 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="images\**" />
+    <Content Remove="images\**" />
+    <EmbeddedResource Remove="images\**" />
+    <None Remove="images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Migrations\20191115004751_firstMigration.cs" />
     <Compile Remove="Data\Migrations\20191115004751_firstMigration.Designer.cs" />
     <Compile Remove="Data\Migrations\20191115055114_UserIdentity.cs" />
     <Compile Remove="Data\Migrations\20191115055114_UserIdentity.Designer.cs" />
     <Compile Remove="Data\Migrations\20191116195645_firstMigration.cs" />
     <Compile Remove="Data\Migrations\20191116195645_firstMigration.Designer.cs" />
-    <Compile Remove="Data\Migrations\20191117195421_PersonalAccount.cs" />
-    <Compile Remove="Data\Migrations\20191117195421_PersonalAccount.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>

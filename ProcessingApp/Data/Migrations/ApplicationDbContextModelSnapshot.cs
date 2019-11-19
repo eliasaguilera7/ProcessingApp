@@ -184,36 +184,6 @@ namespace ProcessingApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ProcessingApp.Models.ApplicationList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("MyApplicationId");
-
-                    b.Property<int>("PropertyId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MyApplicationId");
-
-                    b.HasIndex("PropertyId");
-
-                    b.ToTable("ApplicationList");
-                });
-
-            modelBuilder.Entity("ProcessingApp.Models.MyApplication", b =>
-                {
-                    b.Property<int>("MyApplicationId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("MyApplicationId");
-
-                    b.ToTable("MyApplication");
-                });
-
             modelBuilder.Entity("ProcessingApp.Models.OwnerModel", b =>
                 {
                     b.Property<int>("OwnerId")
@@ -244,10 +214,6 @@ namespace ProcessingApp.Data.Migrations
                     b.Property<string>("PropertyAdress")
                         .IsRequired()
                         .HasMaxLength(60);
-
-                    b.Property<string>("PropertyDescription")
-                        .IsRequired()
-                        .HasMaxLength(50);
 
                     b.Property<string>("PropertyName")
                         .IsRequired()
@@ -304,19 +270,6 @@ namespace ProcessingApp.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProcessingApp.Models.ApplicationList", b =>
-                {
-                    b.HasOne("ProcessingApp.Models.MyApplication", "PersonalAccount")
-                        .WithMany("Applications")
-                        .HasForeignKey("MyApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ProcessingApp.Models.PropertyModel", "Property")
-                        .WithMany()
-                        .HasForeignKey("PropertyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

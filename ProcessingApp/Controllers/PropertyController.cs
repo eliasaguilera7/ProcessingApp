@@ -64,7 +64,6 @@ namespace ProcessingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProcessingApp.ViewModels.PropertyCreateViewModel model)
@@ -79,8 +78,6 @@ namespace ProcessingApp.Controllers
                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                    model.Image.CopyTo(new FileStream(filePath, FileMode.Create));
-
-
                 }
 
 

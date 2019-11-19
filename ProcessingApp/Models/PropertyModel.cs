@@ -25,11 +25,14 @@ namespace ProcessingApp.Models
         [Display(Name = "Address")]
         // input validation
         [Required]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z1-9'\s]*$")]
         [StringLength(60, MinimumLength = 10)]
         public virtual String PropertyAdress { get; set; }
 
         // Price
         [DataType(DataType.Currency)]
+        // inpute validation
+
         [Display(Name = "Price")]
         [Required]
         public virtual double PropertyPrice { get; set; }

@@ -10,6 +10,10 @@ namespace ProcessingApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext<UserModel, IdentityRole, String>
     {
+        public ApplicationDbContext()
+        {
+        }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

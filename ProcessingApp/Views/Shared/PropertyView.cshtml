@@ -4,10 +4,10 @@
 @model PropertyModel
 <div class="col-md-4" style="margin-top:1rem">
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="~/images/Home.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">@Html.DisplayFor(modelItem => modelItem.PropertyName)</h5>
-            <p class="card-text">@Html.DisplayFor(modelItem => modelItem.PropertyDescription)</p>
+            <h5 class="card-title">@Html.DisplayNameFor(model => model.PropertyName): <span style="color:gray">@Html.DisplayFor(modelItem => modelItem.PropertyName)</span></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>@Html.DisplayNameFor(model => model.PropertyAdress): </b>@Html.DisplayFor(modelItem => modelItem.PropertyAdress)</li>

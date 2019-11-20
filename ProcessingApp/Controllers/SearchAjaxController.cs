@@ -21,11 +21,13 @@ namespace ProcessingApp.Controllers
             var property = GetProperties(term);
             return PartialView(property);
         }
+
         public JsonResult autocomplete(string term)
         {
             var properties = GetProperties(term);
             String[] Results = properties.Select(prop => prop.City).ToArray();
             return new JsonResult(Results); 
+
         }
 
         private List<PropertyModel> GetProperties(string term)

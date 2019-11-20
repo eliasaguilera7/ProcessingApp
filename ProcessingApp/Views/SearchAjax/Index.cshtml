@@ -47,8 +47,7 @@
         Scounter++;
 
     }
-    <h5 style=" text-align:right";><span style="color:blue;">@Scounter</span> data found </h5>
-
+    <h5 style=" text-align:right" ;><span style="color:blue;">@Scounter</span> data found </h5>
 
 
 </center>
@@ -58,7 +57,14 @@
 {
     <div class="col-md-4" style="margin-top:1rem; margin:auto;">
         <div class="card" style="width: 25rem; margin-top:20px;">
-            <img src="~/images/Home.jpg" class="card-img-top" alt="...">
+            @if (item.ImageUrl == null)
+            {
+                <img src="~/images/No_Image_Available.jpg" class="card-img-top" alt="..." asp-append-version="true" width="250px;" height="250px;">
+            }
+            else
+            {
+                <img src="~/images/@item.ImageUrl" class="card-img-top" alt="..." asp-append-version="true" width="250px;" height="250px;">
+            }
             <div class="card-body">
                 <h5 class="card-title">Property Name: <span style="color:gray">@item.PropertyName</span></h5>
                 <!--      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -87,7 +93,7 @@
     </div>
 
 }
-<h5 style="text-align:right;"><span style="color:blue;" >@Scounter</span> data found </h5>
+<h5 style="text-align:right;"><span style="color:blue;">@Scounter</span> data found </h5>
 
 
 

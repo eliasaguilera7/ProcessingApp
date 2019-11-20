@@ -2,9 +2,6 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-$(function () {
-    $('#query').autocomplete({
-        source: "searchajax/autocomplete",
-        minLength: 2
-    });
-});
+$("#button").click(function () {
+    $("#ajax").load("/ajax/getPartial");
+})

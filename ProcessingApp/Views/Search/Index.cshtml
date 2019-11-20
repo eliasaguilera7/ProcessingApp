@@ -1,0 +1,13 @@
+﻿@model IEnumerable<PropertyModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        await Html.RenderPartialAsync("PropertyView", item);
+    }
+</div>
+

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,17 +16,23 @@ namespace ProcessingApp.Controllers
     public class PropertyController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public PropertyController(ApplicationDbContext context)
+        public PropertyController(ApplicationDbContext context,
+                                  IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            this.hostingEnvironment = hostingEnvironment;
         }
+
+
 
         // GET: Property
         public async Task<IActionResult> Index()
         {
             return View(await _context.PropertyModel.ToListAsync());
         }
+
 
         // GET: Property/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -43,6 +52,7 @@ namespace ProcessingApp.Controllers
             return View(propertyModel);
         }
 
+        [Authorize]
         // GET: Property/Create
         public IActionResult Create()
         {
@@ -52,19 +62,61 @@ namespace ProcessingApp.Controllers
         // POST: Property/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PropertyId,PropertyName,PropertyDescription,PropertyAdress,PropertyPrice,City,ImageUrl")] PropertyModel propertyModel)
+        public async Task<IActionResult> Create(ProcessingApp.ViewModels.PropertyCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(propertyModel);
+
+                string uniqueFileName = null; 
+                if(model.Image != null)
+                {
+                   string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                   uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                   string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                   model.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+
+                PropertyModel newPropertyModel = new PropertyModel
+                {
+                    PropertyId = model.PropertyId,
+                    PropertyName = model.PropertyName,
+                    PropertyAdress = model.PropertyAdress,
+                    PropertyPrice = model.PropertyPrice,
+                    City = model.City,
+                    ImageUrl = uniqueFileName
+                };
+
+                _context.Add(newPropertyModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(propertyModel);
-        }
 
+                
+            }
+            return View();
+        }
+        
+        // back up
+        //       [HttpPost]
+        //       [ValidateAntiForgeryToken]
+        //        public async Task<IActionResult> Create([Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice,City")] PropertyModel propertyModel)
+        /*        {
+                    if (ModelState.IsValid)
+                    {
+                        _context.Add(propertyModel);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                    return View(propertyModel);
+                }
+        */
+
+
+        [Authorize]
         // GET: Property/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,7 +138,7 @@ namespace ProcessingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,PropertyName,PropertyDescription,PropertyAdress,PropertyPrice,City,ImageUrl")] PropertyModel propertyModel)
+        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,PropertyName,PropertyAdress,PropertyPrice,City")] PropertyModel propertyModel)
         {
             if (id != propertyModel.PropertyId)
             {
@@ -116,6 +168,7 @@ namespace ProcessingApp.Controllers
             return View(propertyModel);
         }
 
+        [Authorize]
         // GET: Property/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

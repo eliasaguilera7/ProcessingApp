@@ -31,7 +31,7 @@ namespace ProcessingApp.Controllers
             var applicant = _context.Users.Include(user => user.MyApplication).Include(user => user.MyApplication.Applications)
                 .Where(x => x.Id == userId).SingleOrDefault();
 
-            if (applicant.Cart == null)
+            if (applicant.MyApplication == null)
             {
                 applicant.MyApplication = new MyApplication()
                 {
@@ -54,7 +54,7 @@ namespace ProcessingApp.Controllers
                 ApplicationList al = new ApplicationList()
                 {
                     PropertyId = id,
-                    MyApplicationId = applicant.MyApplication.Id,
+                    MyApplicationId = applicant.MyApplication.MyApplicationId,
                 };
                 //_context.Add(ci);
                 items.Add(al);

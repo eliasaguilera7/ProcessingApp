@@ -16,29 +16,28 @@ namespace ProcessingApp.Controllers
             _context = context;
         }
         [HttpPost]
-        public IActionResult Index(string query)
+        public IActionResult Index(string term)
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-          
-            var property = GetProperties(query);
-            ViewBag.result = property;
+            var property = GetProperties(term);
             return PartialView(property);
         }
 
         public JsonResult autocomplete(string term)
         {
             var properties = GetProperties(term);
-            String[] Results = properties.Select(property => property.PropertyName).ToArray();
-            return new JsonResult(Results);
+            String[] Results = properties.Select(prop => prop.City).ToArray();
+            return new JsonResult(Results); 
+
         }
 
-        private List<PropertyModel> GetProperties(string query)
+        private List<PropertyModel> GetProperties(string term)
         {
+            
             return _context
                 .PropertyModel
                 .Where(property => property.City
                             .ToLower()
-                            .Contains(query.ToLower()))
+                            .Contains(term.ToLower()))
                 .ToList();
         }
     }

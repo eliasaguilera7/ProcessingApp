@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProcessingApp.Data;
 
 namespace ProcessingApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191120214621_fifthMigration")]
+    partial class fifthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,6 +135,36 @@ namespace ProcessingApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ProcessingApp.Models.ApplicationList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MyApplicationId");
+
+                    b.Property<int>("PropertyId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MyApplicationId");
+
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("ApplicationList");
+                });
+
+            modelBuilder.Entity("ProcessingApp.Models.MyApplication", b =>
+                {
+                    b.Property<int>("MyApplicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("MyApplicationId");
+
+                    b.ToTable("MyApplication");
+                });
+
             modelBuilder.Entity("ProcessingApp.Models.OwnerModel", b =>
                 {
                     b.Property<int>("OwnerId")
@@ -163,6 +195,10 @@ namespace ProcessingApp.Data.Migrations
                     b.Property<string>("PropertyAdress")
                         .IsRequired()
                         .HasMaxLength(60);
+
+                    b.Property<string>("PropertyDescription")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<string>("PropertyName")
                         .IsRequired()
@@ -276,6 +312,19 @@ namespace ProcessingApp.Data.Migrations
                     b.HasOne("ProcessingApp.Models.UserModel")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProcessingApp.Models.ApplicationList", b =>
+                {
+                    b.HasOne("ProcessingApp.Models.MyApplication", "PersonalAccount")
+                        .WithMany("Applications")
+                        .HasForeignKey("MyApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProcessingApp.Models.PropertyModel", "Property")
+                        .WithMany()
+                        .HasForeignKey("PropertyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -40,7 +40,7 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#body" asp-controller="searchajax" asp-action="Index">
-                <input name="query" class="form-control mr-sm-2" id="query" type="search" placeholder="Search by City" aria-label="Search">
+                <input name="term" class="form-control mr-sm-2" id="query" type="search" placeholder="Search by City" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="dropdown" style="margin-left:2rem">
@@ -59,15 +59,16 @@
     <div id="body" class="container body-content">
         <br />
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - Processing Application</p>
+        </footer>
     </div>
     <!-- Popper.js does not work with vendor.min,js -->
     <!-- <script src="~/js/vendor.min.js"></script> -->
     <environment include="Development">
         <script src="https://code.jquery.com/jquery-3.4.1.js"
                 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-                crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
                 crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

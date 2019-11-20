@@ -10,10 +10,10 @@ namespace ProcessingApp.Models
 {
     public class UserModel:IdentityUser
     {
-
         public virtual String Name { get; set; }
-        public virtual int? MyApplicationId { get; set; }
 
+        public virtual int? MyApplicationId { get; set; }
+        
         [ForeignKey("MyApplicationId")]
         public virtual MyApplication MyApplication { get; set; }
     }

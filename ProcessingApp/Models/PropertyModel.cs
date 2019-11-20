@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ProcessingApp.Models
 {
     public class PropertyModel
     {
-        // Key
+        // Key1
         [Key]
         public virtual int PropertyId { get; set; }
 
@@ -20,20 +22,17 @@ namespace ProcessingApp.Models
         [StringLength(50, MinimumLength = 3)]
         public virtual String PropertyName { get; set; }
 
-        // Property Description
-        [Display(Name = "Property Description")]
-        [StringLength(50, MinimumLength = 10)]
-        [Required]
-        public virtual String PropertyDescription { get; set; }
-
         [Display(Name = "Address")]
         // input validation
         [Required]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z1-9'\s]*$")]
         [StringLength(60, MinimumLength = 10)]
         public virtual String PropertyAdress { get; set; }
 
         // Price
         [DataType(DataType.Currency)]
+        // inpute validation
+
         [Display(Name = "Price")]
         [Required]
         public virtual double PropertyPrice { get; set; }
@@ -43,9 +42,14 @@ namespace ProcessingApp.Models
         [Required]
         public virtual String City { get; set; }
 
-        [Display(Name = "Image")]
+
+
+        [Display(Name = "Upload File")]
         public virtual String ImageUrl { get; set; }
-        
+
+       // public IFormFile imageFile { get; set; }
+
+
         // Owner
         public virtual OwnerModel Owner { get; set; }
     }

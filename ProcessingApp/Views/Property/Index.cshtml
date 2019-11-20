@@ -1,7 +1,7 @@
 ﻿
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
 
 @model IEnumerable<ProcessingApp.Models.PropertyModel>
 
@@ -9,6 +9,7 @@
     ViewData["Title"] = "Index";
 }
 <h2>List of Properties</h2>
+
 
 @if (SignInManager.IsSignedIn(User))
 {

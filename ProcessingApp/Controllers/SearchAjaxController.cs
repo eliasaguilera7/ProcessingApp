@@ -19,6 +19,7 @@ namespace ProcessingApp.Controllers
         public IActionResult Index(string term)
         {
             var property = GetProperties(term);
+            ViewBag.result = property;
             return PartialView(property);
         }
 

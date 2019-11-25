@@ -15,6 +15,7 @@ namespace ProcessingApp.Models
         // Owner Name
         [Display(Name = "Owner")]
         [Required]
+		[StringLength(20, ErrorMessage="Name cannot be exceeded after 20 letters.")]
         public virtual String OwnerName { get; set; }
     }
 }

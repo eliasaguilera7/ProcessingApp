@@ -19,7 +19,7 @@ namespace ProcessingApp.Models
         // Input validation
         [Required]
         [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage="Property name can stay between 3-50 letters.")]
         public virtual String PropertyName { get; set; }
 
         [Display(Name = "Address")]

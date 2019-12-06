@@ -1,0 +1,52 @@
+﻿@model ProcessingApp.Models.PropertyModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PropertyModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyAdress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyAdress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropertyPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd>
+            @{
+                var photoPath = "~/images/" + (Model.ImageUrl ?? "No_Image_Available.jpg");
+            }
+            <img src="@photoPath" class="card-img-top" alt="..." asp-append-version="true" >
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PropertyId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

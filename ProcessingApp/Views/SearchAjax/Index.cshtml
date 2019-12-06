@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    //    ViewData["Title"] = "AjaxIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<center>
+
+
+    <!--        <input type="text" id="txtsearch" placeholder="Enter here" />-->
+    @{
+        int Scounter = 0;
+    }
+
+    <h5>Search Result Pattern A </h5>
+
+    <table border="1" width="100%">
+        <tr>
+            <!-- <th width="14%">PropertyId</th> -->
+            <th width="14%">PropertyName</th>
+            <th width="14%">PropertyAdress</th>
+            <th width="14%">PropertyPrice</th>
+            <th width="14%">City</th>
+            <th width="14%">ImageUrl</th>
+            <th width="14%">Owner</th>
+        </tr>
+    </table>
+
+
+    @foreach (var item in ViewBag.result)
+    {
+
+        <table border="0" width="100%">
+            <tr>
+                <!--<td width="14%">@item.PropertyId</td> -->
+                <td width="14%">@item.PropertyName</td>
+                <td width="14%">@item.PropertyAdress</td>
+                <td width="14%">$@item.PropertyPrice</td>
+                <td width="14%">@item.City</td>
+                <td width="14%">@item.ImageUrl</td>
+                <td width="14%">@item.Owner</td>
+            </tr>
+        </table>
+
+        Scounter++;
+
+    }
+    <h5 style=" text-align:right" ;><span style="color:blue;">@Scounter</span> data found </h5>
+
+
+</center>
+
+<h5 style="margin-top:50px; text-align:center">Search Result Pattern B</h5>
+@foreach (var item in ViewBag.result)
+{
+    <div class="col-md-4" style="margin-top:1rem; margin:auto;">
+        <div class="card" style="width: 25rem; margin-top:20px;">
+            @if (item.ImageUrl == null)
+            {
+                <img src="~/images/No_Image_Available.jpg" class="card-img-top" alt="..." asp-append-version="true" width="250px;" height="250px;">
+            }
+            else
+            {
+                <img src="~/images/@item.ImageUrl" class="card-img-top" alt="..." asp-append-version="true" width="250px;" height="250px;">
+            }
+            <div class="card-body">
+                <h5 class="card-title">Property Name: <span style="color:gray">@item.PropertyName</span></h5>
+                <!--      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Address: </b>@item.PropertyAdress</li>
+                <li class="list-group-item"><b>Price: </b>$ @item.PropertyPrice</li>
+                <li class="list-group-item"><b>City: </b>@item.City</li>
+            </ul>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a class="dropdown-item" asp-action="Details" asp-controller="Property" asp-route-id="@item.PropertyId">Details</a>
+
+
+                    </div>
+
+                </div>
+                <button type="button" href="#" class="btn btn-success">Card link</button>
+            </div>
+        </div>
+    </div>
+
+}
+<h5 style="text-align:right;"><span style="color:blue;">@Scounter</span> data found </h5>
+
+
+

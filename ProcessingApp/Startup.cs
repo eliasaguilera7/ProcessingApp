@@ -28,6 +28,26 @@ namespace ProcessingApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+            {
+                microsoftOptions.ClientId = "062bce62-e872-47c4-a42f-7612f21c76c9";
+                microsoftOptions.ClientSecret = "VlpOK/uAtOQFIy5si8:Gf:6z2_DPztxu";
+            });
+
+
+
+
+
+            services.AddAuthentication()
+     .AddGoogle(options =>
+     {
+         IConfigurationSection googleAuthNSection =
+             Configuration.GetSection("Authentication:Google");
+
+         options.ClientId = "1026638166142-l97l6va48qd1rmhsqdask9ub1ca76p7c.apps.googleusercontent.com";
+         options.ClientSecret = "JXUPH-zWmF1mVvEIwg0n9tXS";
+     });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
